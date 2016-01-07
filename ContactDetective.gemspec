@@ -10,8 +10,8 @@ Gem::Specification.new do |spec|
   spec.email         = ["jweinst1@berkeley.edu"]
 
   spec.summary       = %q{A simple API for extracting contact data out of text or HTML}
-  spec.description   = %q{TODO: Write a longer description or delete this line.}
-  spec.homepage      = "TODO: Put your gem's website or public repo URL here."
+  spec.description   = %q{A simple API for extracting contact data, like addresses or emails from text}
+  spec.homepage      = "https://github.com/jweinst1/ContactDetective"
   spec.license       = "MIT"
 
 
