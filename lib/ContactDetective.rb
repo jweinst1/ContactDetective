@@ -7,6 +7,21 @@ module ContactDetective
     require 'open-uri'
     return open(link, &:read)
   end
+  #gets all emails from a link
+  def self.emails(link)
+    text = ContactDetective::gethtmlfromlink(link)
+    text.scan(/[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[a-z]+/)
+  end
+  def self.phonenumbers(link)
+    text = ContactDetective::gethtmlfromlink(link)
+    ContactDetective::Phonenumbers.getallnumbers(text)
+  end
+  def self.addresses(link)
+    text = ContactDetective::gethtmlfromlink(link)
+    citystatezip = ContactDetective::Addresses.citystatezip(text)
+    streets = ContactDetective::Addresses.getstreets(text)
+    return citystatezip + streets
+  end
   class Emails
     #gets every email in the text
     def self.getallemails(text)
@@ -47,7 +62,23 @@ module ContactDetective
 
   end
   class Addresses
-
+    def self.getstreets(text)
+      text.scan(/[0-9]+ [a-zA-Z] street/)
+    end
+    def self.getlanes(text)
+      text.scan(/[0-9]+ [a-zA-Z] lane/)
+    end
+    def self.getroadext(text, road)
+      patt = Regexp.new('[0-9]+ [a-zA-Z] ' + road)
+      text.scan(patt)
+    end
+    #gets city state in format City, ST
+    def self.getcitystates(text)
+      text.scan(/[A-Z][a-z]+, [A-Z]{2}/)
+    end
+    def self.citystatezip(text)
+      text.scan(/[A-Z][a-z]+, [A-Z]{2} [0-9]{5}/)
+    end
   end
   class Utils
 
