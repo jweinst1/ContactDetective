@@ -26,6 +26,24 @@ module ContactDetective
     end
   end
   class Phonenumbers
+    def self.getallnumbers(text)
+      pattone = text.scan(/[0-9]{3}\-[0-9]{3}\-[0-9]{4}/)
+      patttwo = text.scan(/\([0-9]{3}\)\-[0-9]{3}\-[0-9]{3}/)
+      pattthree = text.scan(/[0-9]{3} [0-9]{3} [0-9]{4}/)
+      return pattone + pattwo
+    end
+    #gets numbers by area code
+    def self.getnumbersbyarea(text, areacode)
+      string = areacode + '\-[0-9]{3}\-[0-9]{4}'
+      patt = Regexp.new(string)
+      text.scan(patt)
+    end
+    #all numbers without a specific area
+    def self.getwithoutarea(text, areacode)
+      nums = text.scan(/[0-9]{3}\-[0-9]{3}\-[0-9]{4}/)
+      antipatt = Regexp.new(areacode + '\-[0-9]{3}\-[0-9]{4}')
+      nums.reject {|elem| elem =~ antipatt}
+    end
 
   end
   class Addresses
