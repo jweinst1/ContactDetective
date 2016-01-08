@@ -77,5 +77,12 @@ module ContactDetective
     def self.makeregex(string)
       Regexp.new(string)
     end
+    def self.getnumeric(string)
+      string.scan(/[0-9]+/)
+    end
+    def makeJSON(hashobj)
+      require 'json'
+      hashobj.to_json
+    end
   end
 end
