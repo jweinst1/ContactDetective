@@ -2,6 +2,7 @@
 
 ContactDetective is a simple, straight forward API that allows you to extract and mine contact data from text and HTML. Specifically, the `ContactDetective` module allows your to extract physical addresses, emails and phone numbers from links and text documents. The API is a Ruby gem thats easily installable.
 
+[Gem Page](https://rubygems.org/gems/ContactDetective)
 
 ## Installation
 
