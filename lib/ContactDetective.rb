@@ -22,6 +22,20 @@ module ContactDetective
     streets = ContactDetective::Addresses.getstreets(text)
     return citystatezip + streets
   end
+  #creates Hash object of all contact data
+  def self.allcontacts(link)
+    contacts = Hash.new()
+    contacts['emails'] = emails(link)
+    contacts['phonenumbers'] = phonenumbers(link)
+    contacts['addresses'] = addresses(link)
+    return contacts
+  end
+  #writes the contact data to a json file
+  def self.contactsjson(link, name)
+    require 'json'
+    contact = allcontacts(link).to_json
+    File.open(name, 'w') { |file| file.write(contact) }
+  end
   class Emails
     #gets every email in the text
     def self.getallemails(text)

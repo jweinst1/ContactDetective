@@ -9,8 +9,9 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Joshua Weinstein"]
   spec.email         = ["jweinst1@berkeley.edu"]
 
-  spec.summary       = %q{A simple API for extracting contact data out of text or HTML}
-  spec.description   = %q{A simple API for extracting contact data, like addresses or emails from text}
+  spec.summary       = %q{A simple API for extracting contact data out of text or HTML links.}
+  spec.description   = %q{A simple Ruby API for extracting contact data, such as emails, addresses, and phone numbers from
+text documents and hyperlinks. Also has the ability to save the extracted data as JSON objects and files. For more info, see https://github.com/jweinst1/ContactDetective}
   spec.homepage      = "https://github.com/jweinst1/ContactDetective"
   spec.license       = "MIT"
 
