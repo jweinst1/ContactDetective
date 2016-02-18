@@ -1,7 +1,6 @@
 require "ContactDetective/version"
 
 module ContactDetective
-  #main functions______
   #gets html from a link
   def self.gethtmlfromlink(link)
     require 'open-uri'
