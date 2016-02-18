@@ -20,7 +20,7 @@ Or install it yourself as:
 
     $ gem install ContactDetective
 
-## Usage
+##  Usage
 
 ###Main Functions:
 
